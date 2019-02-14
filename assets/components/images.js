@@ -1,37 +1,53 @@
-Vue.component({
+Vue.component('images', {
+  props: ['pics'],
+  data: () => ({
+    show: false,
+    index: 0,
+  }),
   template: `
-  <v-layout row>
-  <v-flex xs12 sm6 offset-sm3>
-    <v-card>
-      <v-img
-        src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-        height="200px"
+  <v-card>
+      <v-container
+        fluid
+        grid-list-md
       >
-      </v-img>
+        <v-layout row wrap align-baseline>
+          <v-flex
+            v-for="(card, index) in pics"
+            :key="card.title"
+          >
+            <v-card>
+              <v-img
+                :src="card.image_url"
+                width="100%" height="100%"
+              >
+                <v-container
+                  fill-height
+                  fluid
+                >
+                  <v-layout fill-height>
+                    <v-flex xs12 align-end flexbox>
+                      <span class="headline white--text" v-text="card.title"></span>
+                    </v-flex>
+                  </v-layout>
+                </v-container>
+              </v-img>
 
-      <v-card-title primary-title>
-        <div>
-          <div class="headline">Top western road trips</div>
-          <span class="grey--text">1,000 miles of wonder</span>
-        </div>
-      </v-card-title>
-
-      <v-card-actions>
-        <v-btn flat>Share</v-btn>
-        <v-btn flat color="purple">Explore</v-btn>
-        <v-spacer></v-spacer>
-        <v-btn icon @click="show = !show">
-          <v-icon>{{ show ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}</v-icon>
-        </v-btn>
-      </v-card-actions>
-
-      <v-slide-y-transition>
-        <v-card-text v-show="show">
-          I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape.
-        </v-card-text>
-      </v-slide-y-transition>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn icon>
+                  <v-icon>favorite</v-icon>
+                </v-btn>
+                <v-btn icon>
+                  <v-icon>bookmark</v-icon>
+                </v-btn>
+                <v-btn icon>
+                  <v-icon>share</v-icon>
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-flex>
+        </v-layout>
+      </v-container>
     </v-card>
-  </v-flex>
-</v-layout>
   `
 })

@@ -14,10 +14,10 @@ Vue.component(`navbar`, {
       :active.sync="bottomNav"
       :value="true"
       absolute
-      color="transparent"
+      color="#EF5350"
     >
       <v-btn
-        color="teal"
+        color="#E3F2FD"
         flat
         value="recent"
       >
@@ -26,21 +26,21 @@ Vue.component(`navbar`, {
       </v-btn>
 
       <v-btn
-        color="teal"
+        color="#E3F2FD"
         flat
         value="favorites"
       >
-        <span>Favorites</span>
-        <v-icon>favorite</v-icon>
+        <span>Upload</span>
+        <v-icon>add_photo_alternate</v-icon>
       </v-btn>
 
       <v-btn
-        color="teal"
+        color="#E3F2FD"
         flat
         value="nearby"
       >
-        <span>Nearby</span>
-        <v-icon>place</v-icon>
+        <span>Teams</span>
+        <v-icon>person</v-icon>
       </v-btn>
     </v-bottom-nav>
   </v-card>
