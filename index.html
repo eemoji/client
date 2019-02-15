@@ -19,12 +19,10 @@
       <v-content>
         <navbar @page-status='pageStatus'></navbar>
         <div id="container">
-          <masonry :cols="3" :gutter="30">
-            <images :pics="allPics" v-if="render == 'recent' || index "></images>
-            <div v-for="(item, index) in items" :key="index">Item: {{index + 1}}</div>
-          </masonry>
+          <images :pics="allPics" @dialogs="dialog" v-if="render == 'recent' || index "></images>
           <teams :members="allMembers" v-if="render == 'teams'"></teams>
           <upload v-if="render == 'upload'" @page-status='pageStatus'></upload>
+          <editImage :edit_data="edit_data" :modal="modal"></editImage>
         </div>
       </v-content>
     </v-app>
@@ -36,10 +34,8 @@
   <script src="assets/components/images.js"></script>
   <script src="assets/components/teams.js"></script>
   <script src="assets/components/upload.js"></script>
+  <script src="assets/components/modal.js"></script>
   <script src="script.js"></script>
-  <script>
-    Vue.use(Vue.masonry)
-  </script>
 </body>
 
 </html>

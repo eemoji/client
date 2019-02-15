@@ -19,7 +19,7 @@ Vue.component('upload', {
       newFormData.append(`data`, JSON.stringify(newFile))
       newFormData.append(`image`, this.imageFile)   
            
-      axios.post(`http://localhost:3000/images`, newFormData)
+      axios.post(`${server}/images`, newFormData)
         .then(({ data }) => {
           this.$emit('page-status', 'recent')
         })  

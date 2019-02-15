@@ -8,6 +8,8 @@ new Vue({
   data: {
     allPics: [],
     render: 'recent',
+    edit_data: [],
+    modal: false,
     allMembers: [
       {
         image: `https://www.shareicon.net/data/64x64/2016/07/07/792311_man_512x512.png`,
@@ -42,6 +44,11 @@ new Vue({
     },
     pageStatus(status) {
       this.render = status
+    },
+    dialog(payload) {
+      this.editData = payload
+      console.log(payload)
+      this.dialog = true
     }
   }
 })
