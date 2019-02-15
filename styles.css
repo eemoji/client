@@ -1,0 +1,57 @@
+.view {
+  background: url("https://mdbootstrap.com/img/Photos/Others/img (40).jpg")no-repeat center center;
+  background-size: cover;
+}
+
+.navbar {
+  background-color: transparent;
+}
+
+.top-nav-collapse {
+  background-color: #4285F4;
+}
+
+
+/* MASONRY HOLDER */
+.masonryholder {
+  column-count: 4;
+  column-gap: 20px;
+  margin: 15px;
+}
+
+.masonryblocks {
+  display: inline-block;
+  background: white;
+  padding: 5px;
+  margin: 0 0 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.masonryblocks img {
+  width: 100%;
+}
+
+@media screen and (max-width:760px) {
+  .masonryholder {
+    column-count: 1;
+  }
+}
+
+@media screen and (max-width:769px) {
+  .masonryholder {
+    column-count: 2;
+  }
+}
+
+@media screen and (max-width:1080px) {
+  .masonryholder {
+    column-count: 3;
+  }
+}
+
+@media screen and (max-width:769px) {
+  .masonryholder {
+    column-count: 4;
+  }
+}

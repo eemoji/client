@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <!-- axios -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+
+  <!-- vue masonry -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div id="app">
+    <div id="fb-root"></div>
+    <v-app>
+      <v-content>
+        <navbar @page-status='pageStatus'></navbar>
+        <div id="container">
+          <images :pics="allPics" @image_data="dialog" v-if="render == 'recent' || index "></images>
+          <teams :members="allMembers" v-if="render == 'teams'"></teams>
+          <upload v-if="render == 'upload'" @page-status='pageStatus'></upload>
+          <edit-image :edit_data="edit_data" :dialog="modal" @close_dialog="close_dialog"></edit-image>
+        </div>
+      </v-content>
+    </v-app>
+  </div>
+
+  <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+  <script src="assets/components/navbar.js"></script>
+  <script src="assets/components/images.js"></script>
+  <script src="assets/components/teams.js"></script>
+  <script src="assets/components/upload.js"></script>
+  <script src="assets/components/modal.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
