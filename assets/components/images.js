@@ -24,8 +24,11 @@ Vue.component('images', {
       <v-btn @click="callDialogs(image)">
           filter
       </v-btn>
-      <v-btn icon>
-        <v-icon>share</v-icon>
+      <v-btn>
+      <div class="fb-share-button"
+        :data-href="image.image_url"
+        data-layout="button_count">
+      </div>
       </v-btn>
     </v-card-actions>
 
@@ -39,7 +42,7 @@ Vue.component('images', {
           <v-container grid-list-md>
             <img :src="image.image_url" style="width:540px" v-if="">
             <v-layout wrap>
-              
+
               <v-flex xs12>
                 <v-text-field label="Title" v-model="image.title" required></v-text-field>
               </v-flex>
