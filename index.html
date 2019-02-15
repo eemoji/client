@@ -23,11 +23,7 @@
           <images :pics="allPics" @image_data="dialog" v-if="render == 'recent' || index "></images>
           <teams :members="allMembers" v-if="render == 'teams'"></teams>
           <upload v-if="render == 'upload'" @page-status='pageStatus'></upload>
-<<<<<<< HEAD
-          <!-- <editImage :edit_data="edit_data" :modal="modal"></editImage> -->
-=======
           <edit-image :edit_data="edit_data" :dialog="modal" @close_dialog="close_dialog"></edit-image>
->>>>>>> final
         </div>
       </v-content>
     </v-app>
@@ -40,6 +36,7 @@
       js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
+    
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
   <script src="assets/components/navbar.js"></script>

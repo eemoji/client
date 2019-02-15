@@ -27,7 +27,6 @@ Vue.component('images', {
       </div>
       </v-btn>
     </v-card-actions>
-<<<<<<< HEAD
 
     <v-layout row justify-center>
     <v-dialog v-model="dialog" persistent max-width="600px">
@@ -64,9 +63,6 @@ Vue.component('images', {
   </v-layout>
 
 
-=======
-    
->>>>>>> final
   </div>
 </div>
   `

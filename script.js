@@ -43,6 +43,7 @@ new Vue({
         })
     },
     pageStatus(status) {
+      this.getAllImage()
       this.render = status
     },
     dialog(payload) {
@@ -50,6 +51,7 @@ new Vue({
       this.modal = true
     },
     close_dialog() {
+      this.getAllImage()
       this.modal = false
     }
   }
