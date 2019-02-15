@@ -15,6 +15,7 @@
 
 <body>
   <div id="app">
+    <div id="fb-root"></div>
     <v-app>
       <v-content>
         <navbar @page-status='pageStatus'></navbar>
@@ -22,12 +23,19 @@
           <images :pics="allPics" @dialogs="dialog" v-if="render == 'recent' || index "></images>
           <teams :members="allMembers" v-if="render == 'teams'"></teams>
           <upload v-if="render == 'upload'" @page-status='pageStatus'></upload>
-          <editImage :edit_data="edit_data" :modal="modal"></editImage>
+          <!-- <editImage :edit_data="edit_data" :modal="modal"></editImage> -->
         </div>
       </v-content>
     </v-app>
   </div>
 
+  <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
   <script src="assets/components/navbar.js"></script>
