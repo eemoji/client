@@ -20,10 +20,14 @@
       <v-content>
         <navbar @page-status='pageStatus'></navbar>
         <div id="container">
-          <images :pics="allPics" @dialogs="dialog" v-if="render == 'recent' || index "></images>
+          <images :pics="allPics" @image_data="dialog" v-if="render == 'recent' || index "></images>
           <teams :members="allMembers" v-if="render == 'teams'"></teams>
           <upload v-if="render == 'upload'" @page-status='pageStatus'></upload>
+<<<<<<< HEAD
           <!-- <editImage :edit_data="edit_data" :modal="modal"></editImage> -->
+=======
+          <edit-image :edit_data="edit_data" :dialog="modal" @close_dialog="close_dialog"></edit-image>
+>>>>>>> final
         </div>
       </v-content>
     </v-app>
