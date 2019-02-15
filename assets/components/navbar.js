@@ -2,7 +2,12 @@
 Vue.component(`navbar`, {
   data: function () {
     return {
-      bottomNav: 'recent'
+      bottomNav: 'recent',
+    }
+  },
+  methods: {
+    renderPage(status) {
+      this.$emit('page-status', status)
     }
   },
   template: `
@@ -20,6 +25,7 @@ Vue.component(`navbar`, {
         color="#E3F2FD"
         flat
         value="recent"
+        @click.prevent="renderPage('recent')"
       >
         <span>Recent</span>
         <v-icon>history</v-icon>
@@ -29,6 +35,7 @@ Vue.component(`navbar`, {
         color="#E3F2FD"
         flat
         value="favorites"
+        @click.prevent="renderPage('upload')"
       >
         <span>Upload</span>
         <v-icon>add_photo_alternate</v-icon>
@@ -38,6 +45,7 @@ Vue.component(`navbar`, {
         color="#E3F2FD"
         flat
         value="nearby"
+        @click.prevent="renderPage('teams')"
       >
         <span>Teams</span>
         <v-icon>person</v-icon>

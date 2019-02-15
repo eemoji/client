@@ -7,7 +7,24 @@ new Vue({
   },
   data: {
     allPics: [],
-    allMembers: [],
+    render: 'recent',
+    allMembers: [
+      {
+        image: `https://www.shareicon.net/data/64x64/2016/07/07/792311_man_512x512.png`,
+        fullName: `Fauzan Bintang`,
+        message: `Hi all!`
+      },
+      {
+        image: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-XRE46joiP1D55BihdV6YVrnap287S85QrgDcOoI9AHVzCvxkCQ`,
+        fullName: `Arie Septian`,
+        message: `Hi all!`
+      },
+      {
+        image: `https://www.shareicon.net/data/64x64/2016/07/07/792332_people_512x512.png`,
+        fullName: `Theresia Coanata`,
+        message: `Hi all!`
+      }
+    ],
     index: 0,
   },
   methods: {
@@ -22,6 +39,9 @@ new Vue({
         .catch(err => {
           console.log(err)
         })
+    },
+    pageStatus(status) {
+      this.render = status
     }
   }
 })

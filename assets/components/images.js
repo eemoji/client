@@ -2,7 +2,7 @@ Vue.component('images', {
   props: ['pics'],
   data: () => ({
     show: false,
-    index: 0,
+    index: '',
   }),
   template: `
   <v-card>
@@ -10,10 +10,11 @@ Vue.component('images', {
         fluid
         grid-list-md
       >
-        <v-layout row wrap align-baseline>
+        <v-layout row wrap align-start>
           <v-flex
             v-for="(card, index) in pics"
             :key="card.title"
+            xs3
           >
             <v-card>
               <v-img
