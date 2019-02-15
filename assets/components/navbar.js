@@ -12,7 +12,7 @@ Vue.component(`navbar`, {
   },
   template: `
   <v-card height="200px" flat>
-    <div class="display-4 font-weight-thin text-xs-center pa-2">
+    <div class="display-4 font-weight-thin text-bold text-xs-center pa-2">
       Eemoji
     </div>
   </v-carousel>

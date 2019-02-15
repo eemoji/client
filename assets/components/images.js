@@ -1,15 +1,11 @@
 Vue.component('images', {
   props: ['pics'],
   data: () => ({
-    show: false,
-    index: '',
-    dialog: false,
-    selectedImage: '',
-    effects: [],
+
   }),
   methods: {
     callDialogs(images) {
-      this.$emit(`dialogs`, images)
+      this.$emit(`image_data`, images)
     }
   },
   template: `
@@ -31,6 +27,7 @@ Vue.component('images', {
       </div>
       </v-btn>
     </v-card-actions>
+<<<<<<< HEAD
 
     <v-layout row justify-center>
     <v-dialog v-model="dialog" persistent max-width="600px">
@@ -67,6 +64,9 @@ Vue.component('images', {
   </v-layout>
 
 
+=======
+    
+>>>>>>> final
   </div>
 </div>
   `

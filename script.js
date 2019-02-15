@@ -46,9 +46,11 @@ new Vue({
       this.render = status
     },
     dialog(payload) {
-      this.editData = payload
-      console.log(payload)
-      this.dialog = true
+      this.edit_data = payload
+      this.modal = true
+    },
+    close_dialog() {
+      this.modal = false
     }
   }
 })
