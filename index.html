@@ -8,30 +8,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
   <!-- axios -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+
+  <!-- vue masonry -->
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/vue-masonry-css"></script>
 </head>
 
 <body>
   <div id="app">
     <v-app>
       <v-content>
-          <navbar></navbar>
-          <div id="container">
-              <images :pics="allPics" v-if="index % 4 === 0"></images>
-            <div id="col1" style="width:20%;">
-                
-            </div>
-            <div id="col2" style="width:20%;">
-
-            </div>
-            <div id="col3" style="width:20%;">
-
-            </div>
-            <div id="col4" style="width:20%;">
-
-            </div>
-            
-            <teams></teams>
-          </div>
+        <navbar @page-status='pageStatus'></navbar>
+        <div id="container">
+            <masonry
+            :cols="3"
+            :gutter="30"
+            >
+            <images :pics="allPics" v-if="render == 'recent' || index "></images>
+            <div v-for="(item, index) in items" :key="index">Item: {{index + 1}}</div>
+          </masonry>
+          <teams :members="allMembers" v-if="render == 'teams'"></teams>
+          <upload v-if="render == 'upload'" @page-status='pageStatus'></upload>
+        </div>
       </v-content>
     </v-app>
   </div>
@@ -41,8 +39,9 @@
   <script src="assets/components/navbar.js"></script>
   <script src="assets/components/images.js"></script>
   <script src="assets/components/teams.js"></script>
+  <script src="assets/components/upload.js"></script>
   <script src="script.js"></script>
-    
+
 </body>
 
 </html>
