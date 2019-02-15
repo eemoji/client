@@ -10,8 +10,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
 
   <!-- vue masonry -->
-  <script src="https://unpkg.com/vue"></script>
-  <script src="https://unpkg.com/vue-masonry-css"></script>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -20,10 +19,7 @@
       <v-content>
         <navbar @page-status='pageStatus'></navbar>
         <div id="container">
-            <masonry
-            :cols="3"
-            :gutter="30"
-            >
+          <masonry :cols="3" :gutter="30">
             <images :pics="allPics" v-if="render == 'recent' || index "></images>
             <div v-for="(item, index) in items" :key="index">Item: {{index + 1}}</div>
           </masonry>
@@ -41,7 +37,9 @@
   <script src="assets/components/teams.js"></script>
   <script src="assets/components/upload.js"></script>
   <script src="script.js"></script>
-
+  <script>
+    Vue.use(Vue.masonry)
+  </script>
 </body>
 
 </html>

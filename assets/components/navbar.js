@@ -12,9 +12,10 @@ Vue.component(`navbar`, {
   },
   template: `
   <v-card height="200px" flat>
-    <div class="headline text-xs-center pa-5 display-4">
+    <div class="display-4 font-weight-thin text-xs-center pa-2">
       Eemoji
     </div>
+  </v-carousel>
     <v-bottom-nav
       :active.sync="bottomNav"
       :value="true"
