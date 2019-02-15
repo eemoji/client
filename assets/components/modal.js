@@ -1,34 +1,16 @@
-Vue.component('images', {
-  props: ['pics'],
+Vue.component('editImage', {
+  props: ['edit_data', 'modal'],
   data: () => ({
-    show: false,
-    index: '',
-    dialog: false,
-    selectedImage: '',
     effects: [],
   }),
   methods: {
-    callDialogs(images) {
-      this.$emit(`dialogs`, images)
+    filteredOpt(effects) {
+      effects.forEach(e => {
+        this.effects.push(e.name)
+      });
     }
   },
   template: `
-  <div class="masonryholder">
-  <div class="masonryblocks" v-for="image in pics">
-    <img :src="image.image_url"><br>
-    <h2>{{ image.title }}</h2>
-    <p v-if="image.description">{{ image.description }}</p>
-
-    <v-card-actions>
-      <v-spacer></v-spacer>
-      <v-btn @click="callDialogs(image)">
-          filter
-      </v-btn>
-      <v-btn icon>
-        <v-icon>share</v-icon>
-      </v-btn>
-    </v-card-actions>
-
     <v-layout row justify-center>
     <v-dialog v-model="dialog" persistent max-width="600px">
       <v-card>
@@ -62,9 +44,5 @@ Vue.component('images', {
       </v-card>
     </v-dialog>
   </v-layout>
-
-
-  </div>
-</div>
   `
 })
